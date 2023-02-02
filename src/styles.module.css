@@ -1,0 +1,16 @@
+.root {
+  height: 100vh;
+  padding: 40px;
+  min-height: 100vh;
+  color: #eee;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .root {
+    max-height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+}

@@ -1,0 +1,166 @@
+.root {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-width: 79vh;
+}
+
+.header {
+  margin-bottom: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.winSequenceSelect {
+  margin-left: auto;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  background: inherit;
+  border-width: 2px;
+  border-style: solid;
+  transition: transform 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;
+  border-color: #cd5c5c #cd5c5c #1774cf #1774cf;
+  width: 20ch;
+  height: 100%;
+  padding: 1ch;
+  outline: none;
+  cursor: pointer;
+}
+
+.winSequenceSelect:hover {
+  transform: scale(1.01) skewX(-5deg);
+  border-color: #cd5c5c #1774cf #1774cf #cd5c5c;
+}
+
+.winSequenceSelect:active {
+  transform: scale(0.8) skewX(15deg);
+}
+
+.board {
+  display: grid;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  aspect-ratio: 1/1;
+  border: 1px solid #444;
+  color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 6px solid #cd5c5c;
+  animation: bump-in 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  z-index: 1;
+  cursor: default;
+}
+
+.cross {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  height: 80%;
+  animation: bump-in 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  z-index: 1;
+  cursor: default;
+}
+
+.cross::before,
+.cross::after {
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: '';
+  height: 133%;
+  width: 6px;
+  background-color: #1774cf;
+}
+
+.cross:before {
+  transform: rotate(45deg);
+}
+
+.cross:after {
+  transform: rotate(-45deg);
+}
+
+.winner {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 10vmax;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  animation: bump-in 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  background: rgba(12, 12, 12, 0.89);
+}
+
+@keyframes bump-in {
+  from {
+    transform: scale(2);
+    background: rgba(12, 12, 12, 0);
+  }
+}
+
+.resetButton {
+  margin-top: 20px;
+  appearance: none;
+  font: inherit;
+  font-size: 0.5em;
+  padding: 0.5ch 1ch;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #cd5c5c #cd5c5c #1774cf #1774cf;
+  transition: transform 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;
+  cursor: pointer;
+}
+
+.resetButton:hover {
+  transform: scale(1.05) skewX(-5deg);
+}
+
+.resetButton:active {
+  transform: scale(0.8) skewX(15deg);
+}
+
+.color-circle {
+  color: #cd5c5c;
+}
+
+.color-cross {
+  color: #1774cf;
+}
